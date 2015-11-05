@@ -6,6 +6,7 @@ struct mystruct{
     float f;
 };          //结构体声明
 
+//typdef 就是帮类型起另外一个名字
 typedef struct mystruct mytype; //用mytype 代替 struct mystruct
 
 int main(void)
@@ -17,12 +18,12 @@ int main(void)
     //单个类型
     int i = 123;
     int *i_p = &i;   //&i_p是i_p的地址里面的值是i_p,也是&i这个值,   i这个值是地址   *i 是123这个数值
-                    //地址  的   值（地址也可以看成数值）
-                    //&i_p      i_p
-                    //i_p       &i
-                    //*i_p不是地址
-                    //&i        i
-                    //i不是地址
+    //地址  的   值（地址也可以看成数值）
+    //&i_p      i_p
+    //i_p       &i
+    //*i_p不是地址
+    //&i        i
+    //i不是地址
 
     char c = 'a';   //&c是装'a'这个字符的地址， c是'c'这个字符（也是数值） 没有*c
     float f;
@@ -45,7 +46,7 @@ int main(void)
     //多个相同类型集合(数组)
     int ar[3] = {1,2,3};                //连续装3个int大小的数组
     char ar1[] = {'a','b','c'};         //连续装3个char大小的数组 在定义时才可以不指定大小
-                                        //定义之后就以里面内容为大小
+    //定义之后就以里面内容为大小
 
     for(i = 0;i<3;i++)
     {
@@ -75,6 +76,47 @@ int main(void)
     uni.i = 0x11223344;
     printf("i:%d\t c:%c\t f:%f\n",uni.i,uni.c,uni.f);
     printf("sizeof(uni):%d\n",sizeof(uni));
+
+    //=============if=======非0条件成立=====================
+    //分支结构
+    printf("=============if=======非0条件成立=====================\n");
+    printf("请入一个字符:");
+    scanf("%c",&uni.c);
+    if(uni.c == 'T')    //'X'为字符 "XXXX"字符串
+    {
+        printf("uni.c == 'T' is true\n");
+    }
+    else
+    {
+        printf("uni.c == 'T' is false\n");
+    }
+
+    //=============while=======非0条件成立=====================
+    //循环结构
+    printf("=============while=======非0条件成立=====================\n");
+    i = 0;
+    while((color+i) != black)
+    {
+        printf("%d\n",color+i);
+        i++;
+    }
+
+    i = 0;
+    do
+    {
+        printf("%d\n",color+i);
+        i++;
+    }while((color+i) != black);
+    //=============for=======第二条语句非0条件成立=====================
+    //循环结构
+    printf("=============for=======第二条语句非0条件成立=====================\n");
+    //数组必须要一个个去访问
+    for(i = 0;i<3;i++)
+    {
+        printf("%c\t",ar1[i]);
+    }
+    putchar('\n');
+
 
     return 0;
 }
